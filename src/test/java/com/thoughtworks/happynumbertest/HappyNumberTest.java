@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HappyNumberTest {
     @Nested
@@ -13,15 +12,29 @@ public class HappyNumberTest {
         void givenOneWhenCheckIsHappyNumberThenShouldBeHappyNumber() {
             HappyNumber one = new HappyNumber(1);
 
-            assertEquals(true, one.isHappy(one));
+            assertEquals(true, one.isHappyNumberOrNot());
         }
 
         @Test
-        void givenTenCheckIsHappyNumberThenShouldBeHappyNumber(){
+        void givenTenWhenCheckIsHappyNumberThenShouldBeHappyNumber() {
             HappyNumber ten = new HappyNumber(10);
 
-            assertEquals(true,ten.isHappy(ten));
+            assertEquals(true, ten.isHappyNumberOrNot());
         }
+
+        @Test
+        void givenTwentyWhenCheckIsHappyNumberThenShouldNotBeHappyNumber() {
+            HappyNumber twenty = new HappyNumber(20);
+            assertEquals(false, twenty.isHappyNumberOrNot());
+        }
+
+        @Test
+        void givenHundredWhenCheckIsHappyNumberThenShouldBeHappyNumber() {
+            HappyNumber hundred = new HappyNumber(100);
+            assertEquals(true,hundred.isHappyNumberOrNot());
+        }
+
+
 
     }
 }

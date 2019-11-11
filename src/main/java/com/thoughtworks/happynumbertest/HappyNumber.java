@@ -12,18 +12,17 @@ public class HappyNumber {
     }
 
     public boolean isHappyNumberOrNot() {
-        List listOfAddedNumber = new ArrayList<>();
-        List listOfNumbersSquare = new ArrayList();
 
         int additionOfSquareOfDigits = 0;
 
         List<Integer> additionOfSquaredDigit = addArrayElements(squareOfEachDigit(getDigitOfNumber(number)));
-        for (int i=0;i<additionOfSquaredDigit.size();i++) {
-            additionOfSquareOfDigits = additionOfSquaredDigit.get(i)+additionOfSquareOfDigits;
+        for (Integer integer : additionOfSquaredDigit) {
+            additionOfSquareOfDigits = integer + additionOfSquareOfDigits;
         }
         if(additionOfSquareOfDigits == 1){
             return true;
         }
+        for(Integer integer : additionOfSquaredDigit) additionOfSquareOfDigits = integer = additionOfSquareOfDigits;
         return false;
     }
 
@@ -44,12 +43,14 @@ public class HappyNumber {
         List<Integer> squareOfDigits = squareOfEachDigit(allDigitInNumber);
         List<Integer> addedSquareNumbers = new ArrayList<>();
         int numberDigit = allDigitInNumber.size();
-        int additionOfSquareOfDigits=0;
+        int additionOfSquareOfDigits = 0;
 
-        for (int i=0;i<numberDigit;i++) {
+        int i=0;
+        while (i<numberDigit) {
         int numberOne = squareOfDigits.get(i);
          additionOfSquareOfDigits = numberOne + additionOfSquareOfDigits;
         addedSquareNumbers.add(additionOfSquareOfDigits);
+            i++;
         }
         return addedSquareNumbers;
     }
@@ -58,55 +59,12 @@ public class HappyNumber {
         List<Integer> allDigitInNumber = getDigitOfNumber(number);
         List<Integer> listOfNumbersSquare = new ArrayList<>();
         int numberDigit = getDigitOfNumber(number).size();
-        for (int i = 0; i < numberDigit; i++) {
-            int squareOfNumber = (int) Math.pow(allDigitInNumber.get(i),2);
-            listOfNumbersSquare.add(squareOfNumber);
-        }
-        return listOfNumbersSquare;
+            int i = 0;
+            while (i < numberDigit) {
+                int squareOfNumber = (int) Math.pow(allDigitInNumber.get(i),2);
+                listOfNumbersSquare.add(squareOfNumber);
+                i++;
+            }
+            return listOfNumbersSquare;
     }
 }
-/*
-*     public boolean check() {
-        if (number == 1 || number == 10)
-            return true;
-        List<Integer> digit = getdigitsList(number);
-        int sumOfSquare = getSumOfSquare(digit);
-        if (sumOfSquare == 1) {
-            return true;
-        }
-        this.number = sumOfSquare;
-        digit = getdigitsList(number);
-        sumOfSquare = getSumOfSquare(digit);
-        if (sumOfSquare == 1) {
-            return true;
-        }
-        this.number = sumOfSquare;
-        digit = getdigitsList(number);
-        sumOfSquare = getSumOfSquare(digit);
-        if (sumOfSquare == 1) {
-            return true;
-        }
-        this.number = sumOfSquare;
-        digit = getdigitsList(number);
-        sumOfSquare = getSumOfSquare(digit);
-        if (sumOfSquare == 1 || sumOfSquare == 10 || sumOfSquare == 100) {
-            return true;
-        }
-        return false;
-    }
-
-
-
-    private int getSumOfSquare(List<Integer> digit) {
-        int sumOfSquare = 0;
-        for (int i = 0; i < digit.size(); i++) {
-            sumOfSquare = sumOfSquare + digit.get(i) * digit.get(i);
-        }
-        return sumOfSquare;
-    }
-
-    public static void main(String[] args) {
-    }
-}
-
-* */

@@ -7,44 +7,41 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class HappyNumberTest {
-    @Nested
-    public class HappyEdgeCases {
         @Test
         void givenOneWhenCheckIsHappyNumberThenShouldBeHappyNumber() {
-            HappyNumber one = new HappyNumber(1);
+            HappyNumber one = new HappyNumber();
 
-            assertEquals(true, one.isHappyNumberOrNot());
+            assertEquals(true, one.isHappyNumberOrNot(1));
         }
 
         @Test
         void givenTenWhenCheckIsHappyNumberThenShouldBeHappyNumber() {
-            HappyNumber ten = new HappyNumber(10);
+            HappyNumber ten = new HappyNumber();
 
-            assertEquals(true, ten.isHappyNumberOrNot());
+            assertEquals(true, ten.isHappyNumberOrNot(10));
         }
 
         @Test
         void givenTwentyWhenCheckIsHappyNumberThenShouldNotBeHappyNumber() {
-            HappyNumber twenty = new HappyNumber(20);
-            assertEquals(false, twenty.isHappyNumberOrNot());
+            HappyNumber twenty = new HappyNumber();
+            assertEquals(false, twenty.isHappyNumberOrNot(20));
         }
 
         @Test
         void givenHundredWhenCheckIsHappyNumberThenShouldBeHappyNumber() {
-            HappyNumber hundred = new HappyNumber(100);
-            assertEquals(true,hundred.isHappyNumberOrNot());
+            HappyNumber hundred = new HappyNumber();
+            assertEquals(true,hundred.isHappyNumberOrNot(100));
         }
 
         @Test
         void givenTwelveWhenCheckIsHappyNumberThenShouldBeHappyNumber() {
-            HappyNumber twelve = new HappyNumber(12);
-            assertFalse(twelve.isHappyNumberOrNot());
+            HappyNumber twelve = new HappyNumber();
+            assertFalse(twelve.isHappyNumberOrNot(12));
         }
 
         @Test
         void givenTwentyFiveWhenCheckIsHappyNumberOrNotThenShouldBeHappyNumber() {
-            HappyNumber terntyFive = new HappyNumber(25);
-            assertFalse(terntyFive.isHappyNumberOrNot());
+            HappyNumber twentyFive = new HappyNumber();
+            assertFalse(twentyFive.isHappyNumberOrNot(25));
         }
     }
-}
